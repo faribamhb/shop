@@ -13,39 +13,67 @@
 <head>
     <title>$Title$</title>
     <%--<link href="bootstrap/font-awesome.css" rel="stylesheet">--%>
-    <link href="../../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <%--<link href="../../bootstrap/bootstrap.min.css" rel="stylesheet">--%>
     <link href="../../css/Index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="../../bootstrap/bootstrap.js"></script>
-    <script src="../../bootstrap/jquery-2.1.1.min.js"></script>
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--%>
+    <%--<script src="../../bootstrap/bootstrap.js"></script>--%>
+    <%--<script src="../../bootstrap/jquery-2.1.1.min.js"></script>--%>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <header>
-
-    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark" style="direction: rtl">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav" style="float: right">
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="glyphicon glyphicon-home"></i>
-                    </a>
-
-                </li>
-
-                </li>
-            </ul>
+    <div >
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mt-5">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Event</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <div class="col-auto pl-0">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                    </div>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="col-auto pl-0">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                    </div>
+                                    <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="col-auto pl-0 pr-0">
+                                <a class="nav-link" href="/login" id="login"><span class="fas fa-sign-in-alt"></span> Login</a>
+                                <%--<button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button>--%>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
         </div>
-    </nav>
+    </div>
 </header>
 <article>
     <div id="cards_landscape_wrap-2">
@@ -74,6 +102,9 @@
             </div>
         </div>
     </div>
+    <%--<div>--%>
+        <%--<jsp:include page="login.jsp"/>--%>
+    <%--</div>--%>
 </article>
 <footer class="fixed_footer">
     <div class="content">
