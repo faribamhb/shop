@@ -15,7 +15,7 @@ public class LoginService {
     }
 
     public boolean findUser(String userName, String password) {
-        Optional<User> user =loginRepository.findByUserNameAndPassword(userName,password);
+        Optional<User> user =loginRepository.findByUsernameAndPassword(userName,password);
         if (user.isPresent()){
             return true;
         }

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface LoginRepository  extends JpaRepository<Product, Long> {
-    Optional<User> findByUserNameAndPassword(String userName, String password);
+public interface LoginRepository  extends JpaRepository<User, Long> {
+    Optional<User> findByUsernameAndPassword(String userName, String password);
 }
