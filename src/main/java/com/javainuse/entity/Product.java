@@ -1,8 +1,6 @@
 package com.javainuse.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,10 +15,18 @@ public class Product implements Serializable {
     @SequenceGenerator(name = "ProductSeq", allocationSize = 1, sequenceName = "ProductSeq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name = "name", columnDefinition = "varchar2(200)")
     private String name;
-    private String image;
+    @Column(name = "price")
+    private Long price;
+    @Column(name = "description", columnDefinition = "varchar2(200)")
     private String description;
-
+    @Lob
+    @Column(name = "image", nullable=false)
+    private byte[] image;
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="Category_Id")
+    private ProductCategory productCategory;
 
     public Long getId() {
         return id;
@@ -38,12 +44,12 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
+    public Long getPrice() {
+        return price;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPrice(Long price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -52,6 +58,22 @@ public class Product implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 
     @Override

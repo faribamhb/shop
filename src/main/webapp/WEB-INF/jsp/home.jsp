@@ -1,676 +1,519 @@
+<%@ page import="java.util.Base64" %>
+<%@ page import="com.javainuse.repository.ProductCategoryRepository" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="com.javainuse.entity.Product" %>
-<%@ page import="java.util.List" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: FaribaMhb
-  Date: 2/5/2021
-  Time: 2:35 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>$Title$</title>
-    <link href="bootstrap/font-awesome.css" rel="stylesheet">
-    <link href="../../bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/Index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="../../bootstrap/bootstrap.js"></script>
-    <script src="../../bootstrap/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>فروشگاه اینترنتی</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Constra HTML Template v1.0">
+    <link rel="stylesheet" href="../../plugins/themefisher-font/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.png"/>
+
+    <!-- Themefisher Icon font -->
+    <%--<link rel="stylesheet" href="../../plugins/themefisher-font/style.css">--%>
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="../../plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="../../plugins/slick/slick.css">
+    <link rel="stylesheet" href="../../plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
 
 </head>
-<body >
-<header>
-    <body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default  navbar-expand-lg">
-        <div class="container">
+<body id="body" class="container">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="direction: rtl">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden active">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#services">افزودن محصول</a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#portfolio">درباره ما</a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#about">گروه</a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#team">تماس با ما</a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#contact">گالری</a>
-                    </li>
-                </ul>
+<!-- Start Top Header Bar -->
+<section class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-4">
+                <div class="contact-number">
+                    <i class="tf-ion-ios-telephone"></i>
+                    <span>09193136177</span>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
+            <div class="col-md-4 col-xs-12 col-sm-4">
+                <!-- Site Logo -->
+                <div class="logo text-center">
+                    <a href="index.html">
+
+                        <!-- replace logo here -->
+                        <svg width="135px" height="29px" viewBox="0 0 250 30" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                               font-family="AustinBold, Austin" font-weight="bold">
+                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                                    <text id="AVIATO">
+                                        <tspan x="108.94" y="325">فروشگاه اینترنتی</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 col-sm-4">
+                <!-- Cart -->
+                <ul class="top-menu text-right list-inline">
+
+                    <!-- Search -->
+                    <li class="dropdown search dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                class="tf-ion-ios-search-strong"></i> جستجو</a>
+                        <ul class="dropdown-menu search-dropdown">
+                            <li>
+                                <form action="post"><input type="search" class="form-control" style="text-align: right"
+                                                           placeholder="جستجو"></form>
+                            </li>
+                        </ul>
+                    </li><!-- / Search -->
+
+
+                </ul><!-- / .nav .navbar-nav .navbar-right -->
+            </div>
         </div>
-        <!-- /.container-fluid -->
+    </div>
+</section><!-- End Top Header Bar -->
+
+
+<!-- Main Menu Section -->
+<section class="menu">
+    <nav class="navbar navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <h2 class="menu-title">Main Menu</h2>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div><!-- / .navbar-header -->
+
+            <!-- Navbar Links -->
+            <div id="navbar" class="navbar-collapse collapse text-center">
+                <ul class="nav navbar-nav">
+                    <!-- Elements -->
+                    <li class="dropdown dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false">محصولات <span
+                                class="tf-ion-ios-arrow-down"></span></a>
+                        <div class="dropdown-menu">
+                            <div class="row">
+
+                                <!-- Basic -->
+                                <div class="col-lg-6 col-md-6 mb-sm-3">
+                                    <ul>
+                                        <li class="dropdown-header">Pages</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="confirmation.html">Confirmation</a></li>
+
+                                    </ul>
+                                </div>
+
+                                <!-- Layout -->
+                                <div class="col-lg-6 col-md-6 mb-sm-3">
+                                    <ul>
+                                        <li class="dropdown-header">Layout</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="product-single.html">Product Details</a></li>
+                                        <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
+
+                                    </ul>
+                                </div>
+
+                            </div><!-- / .row -->
+                        </div><!-- / .dropdown-menu -->
+                    </li><!-- / Elements -->
+
+
+                    <!-- Pages -->
+                    <li class="dropdown full-width dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false">درباره ما <span
+                                class="tf-ion-ios-arrow-down"></span></a>
+                        <div class="dropdown-menu">
+                            <div class="row">
+
+                                <!-- Introduction -->
+                                <div class="col-sm-3 col-xs-12">
+                                    <ul>
+                                        <li class="dropdown-header">Introduction</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="404.html">404 Page</a></li>
+                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Contact -->
+                                <div class="col-sm-3 col-xs-12">
+                                    <ul>
+                                        <li class="dropdown-header">Dashboard</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="dashboard.html">User Interface</a></li>
+                                        <li><a href="order.html">Orders</a></li>
+                                        <li><a href="address.html">Address</a></li>
+                                        <li><a href="profile-details.html">Profile Details</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Utility -->
+                                <div class="col-sm-3 col-xs-12">
+                                    <ul>
+                                        <li class="dropdown-header">Utility</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="login.html">Login Page</a></li>
+                                        <li><a href="signin.html">Signin Page</a></li>
+                                        <li><a href="forget-password.html">Forget Password</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Mega Menu -->
+                                <div class="col-sm-3 col-xs-12">
+                                    <a href="shop.html">
+                                        <img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image"/>
+                                    </a>
+                                </div>
+                            </div><!-- / .row -->
+                        </div><!-- / .dropdown-menu -->
+                    </li><!-- / Pages -->
+
+
+                    <!-- Blog -->
+                    <li class="dropdown dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false">دسته بندی ها <span
+                                class="tf-ion-ios-arrow-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-left-sidebar.html">دستکش</a></li>
+                            <li><a href="blog-right-sidebar.html">کلاه</a></li>
+                            <li><a href="blog-full-width.html">لباس ایمنی</a></li>
+                            <li><a href="blog-grid.html">لباس کار</a></li>
+                            <li><a href="blog-single.html">کفش</a></li>
+                        </ul>
+                    </li><!-- / Blog -->
+
+                    <!-- Shop -->
+                    <li class="dropdown dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false">گروه ها <span
+                                class="tf-ion-ios-arrow-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="alerts.html">Alerts</a></li>
+                        </ul>
+                    </li><!-- / Blog -->
+                    <!-- Home -->
+                    <li class="dropdown ">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">افزودن محصول</a>
+                    </li><!-- / Home -->
+                </ul><!-- / .nav .navbar-nav -->
+
+
+            </div>
+            <!--/.navbar-collapse -->
+        </div><!-- / .container -->
     </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">فروشگاه اینترنتی</div>
-                <div class="intro-heading">هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</div>
-                <%--<a href="#services" class="page-scroll btn btn-xl">Aku Bukan Sempit</a>--%>
-            </div>
-        </div>
-    </header>
-
-    <!-- Services Section -->
-    <%--<section id="services">--%>
-        <%--<div class="container">--%>
-            <%--<div class="row">--%>
-                <%--<div class="col-lg-12 text-center">--%>
-                    <%--<h2 class="section-heading">Services</h2>--%>
-                    <%--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="row text-center">--%>
-                <%--<div class="col-md-4">--%>
-                    <%--<span class="fa-stack fa-4x">--%>
-                        <%--<i class="fa fa-circle fa-stack-2x text-primary"></i>--%>
-                        <%--<i class="glyphicon glyphicon-tree-conifer"></i>--%>
-                    <%--</span>--%>
-                    <%--<h4 class="service-heading">Here is a pokok</h4>--%>
-                    <%--<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4">--%>
-                    <%--<span class="fa-stack fa-4x">--%>
-                        <%--<i class="fa fa-circle fa-stack-2x text-primary"></i>--%>
-                        <%--<i class="glyphicon glyphicon-heart"></i>--%>
-                    <%--</span>--%>
-                    <%--<h4 class="service-heading">Here's a heart</h4>--%>
-                    <%--<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4">--%>
-                    <%--<span class="fa-stack fa-4x">--%>
-                        <%--<i class="fa fa-circle fa-stack-2x text-primary"></i>--%>
-                        <%--<i class="glyphicon glyphicon-tint"></i>--%>
-                    <%--</span>--%>
-                    <%--<h4 class="service-heading">Waterfall maybe?</h4>--%>
-                    <%--<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</section>--%>
-
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading" style="color: #6c757d!important;">لیست محصولات</h2>
-                    <h3 class="section-subheading text-muted">فروشگاه اینترنتی دیجی‌کالا، بررسی، انتخاب و خرید آنلاین</h3>
+    <div class="hero-slider">
+        <div class="slider-item  th-fullpage hero-area" style="background-image: url(../../image/3.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 text-right">
+                        <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">انواع و اقسام لوازم
+                            ایمنی</p>
+                        <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">تولید کننده انواع
+                            تجهیزات ایمنی </h1>
+                        <%--<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>--%>
+                    </div>
                 </div>
             </div>
-            <div id="cards_landscape_wrap-2" >
-                <div class="container">
-                    <%--<div id="output" ></div>--%>
-                    <div id="output" class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        با موفقیت حذف شد
+        </div>
+        <div class="slider-item th-fullpage hero-area" style="background-image: url(../../image/4.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 text-center">
+                        <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">خرید تلفنی</p>
+                        <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">آماده همکاری با شرکت
+                            ها و ارگان ها</h1>
+                        <%--<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>--%>
                     </div>
-                    <div class="row">
+                </div>
+            </div>
+        </div>
+        <div class="slider-item th-fullpage hero-area" style="background-image: url(../../image/1.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 text-right">
+                        <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">ایمنی</p>
+                        <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">از ما خرید نمایید <br>
+                            وسیله های حفاظتی در محیط کار</h1>
+                        <%--<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                        <c:forEach var="product" items="${products}">
-                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"  id="product${product.id}">
-                                <span class="icon" id="delete" onclick="deleteProduct(${product.id})">&times;</span>
 
-                                <span class="icon" id="edit"  >&#9998;</span>
-                                <a href="#">
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <c:forEach var="product" items="${products}">
+                    <div class="col-md-4">
+                        <div class="product-item" id="product${product.id}">
+                            <div class="product-thumb">
+                                <span class="bage">${product.name}</span>
+                                <img class="img-responsive" id="showImage" src="data:image/png;base64,${product.image}" alt="product-img"/>
+                                <div class="preview-meta">
+                                    <ul>
+                                        <li>
+									<span data-toggle="modal" data-target="#product-modal">
+										<i class="tf-ion-ios-search-strong"></i>
+									</span>
+                                        </li>
+                                        <li>
+                                            <a href="#!"><i class="tf-ion-edit"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" onclick="deleteProduct(${product.id})"><i
+                                                    class="tf-ion-android-delete"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title">${product.name}</h4>
+                                <p style="margin: 2%">${product.description}</p>
+                                <div class="product-content" >
+                                    <h4>مبلغ</h4>
+                                    <div class="text-container" >
 
-                                    <div class="card-flyer">
-
-                                        <div class="text-box">
-                                            <div class="image-box">
-                                                <img src="https://www.w3schools.com/css/img_forest.jpg" alt="" />
-                                            </div>
-                                            <div class="text-container">
-                                                <h6> <c:out value="${product.name}" /></h6>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                            </div>
-                                        </div>
-
+                                        <p class="price" style="color:#bf2000"> <span style="text-align: left">ریال</span>${product.price} </p>
                                     </div>
-
-                                </a>
-
+                                </div>
                             </div>
 
-                        </c:forEach>
-
+                        </div>
                     </div>
-                </div>
-            </div>
-            <%--<div class="row">--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Round Icons</h4>--%>
-                        <%--<p class="text-muted">Graphic Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/44/9s1lvXLlSbCX5l3ZaYWP_hdr-1.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=f0a1db79752dbb04ec6d2aab7d17c7b0" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Startup Framework</h4>--%>
-                        <%--<p class="text-muted">Website Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/46/Ov6ZY1zLTWmhPC0wFysP_IMG_2896_edt.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=6518e4df89659818f6c0392175a9c5e6" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Treehouse</h4>--%>
-                        <%--<p class="text-muted">Website Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/44/9s1lvXLlSbCX5l3ZaYWP_hdr-1.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=f0a1db79752dbb04ec6d2aab7d17c7b0" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Golden</h4>--%>
-                        <%--<p class="text-muted">Website Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/46/Ov6ZY1zLTWmhPC0wFysP_IMG_2896_edt.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=6518e4df89659818f6c0392175a9c5e6" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Escape</h4>--%>
-                        <%--<p class="text-muted">Website Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-md-4 col-sm-6 portfolio-item">--%>
-                    <%--<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">--%>
-                        <%--<div class="portfolio-hover">--%>
-                            <%--<div class="portfolio-hover-content">--%>
-                                <%--<i class="fa fa-plus fa-3x"></i>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-responsive" alt="">--%>
-                    <%--</a>--%>
-                    <%--<div class="portfolio-caption">--%>
-                        <%--<h4>Dreams</h4>--%>
-                        <%--<p class="text-muted">Website Design</p>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Ajmal, I need help to learn how to tweak this part. I don't want this timeline crap. Haha.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                </c:forEach>
+                <div class="text-center">
+                    <ul class="pagination post-pagination">
+                        <li><a href="#!">Prev</a>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                        <li class="active"><a href="#!">1</a>
                         </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                        <li><a href="#!">2</a>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                        <li><a href="#!">3</a>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
+                        <li><a href="#!">4</a>
+                        </li>
+                        <li><a href="#!">5</a>
+                        </li>
+                        <li><a href="#!">Next</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Aside -->
-
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate="">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required="" data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required="" data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+            <div class="col-md-4">
+                <aside class="sidebar">
+                    <!-- Widget Latest Posts -->
+                    <div class="widget widget-latest-post">
+                        <h4 class="widget-title">Latest Posts</h4>
+                        <div class="media">
+                            <a class="pull-left" href="#!">
+                                <img class="media-object" src="../../images/blog/post-thumb.jpg" alt="Image">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">Introducing Swift for Mac</a></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright © Your Website 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-
-    <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <p>
-                                <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
-                            <ul class="list-inline">
-                                <li>Date: July 2014</li>
-                                <li>Client: Round Icons</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
-                    </div>
-                </div>
+                    <!-- End Latest Posts -->
+                </aside>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Portfolio Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Heading</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="https://unsplash.imgix.net/44/9s1lvXLlSbCX5l3ZaYWP_hdr-1.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=f0a1db79752dbb04ec6d2aab7d17c7b0" alt="">
-                            <p><a href="https://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
-                            <p>You can preview Startup Framework <a href="https://designmodo.com/startup/?u=787">here</a>.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Portfolio Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="text-align: right">
+            <div class="modal-header" style="background-color: rgb(254,186,1)">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alertPart mt-50 messageAlert">
+                    <div class="alert alert-success alert-common alert-dismissible " role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <i class="tf-ion-thumbsup"></i><span>Well done!</span> با موفقیت حذف شد
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="https://unsplash.imgix.net/46/Ov6ZY1zLTWmhPC0wFysP_IMG_2896_edt.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=6518e4df89659818f6c0392175a9c5e6" alt="">
-                            <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
-                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
+                <h2 class="text-center">افزودن محصول</h2>
+                <form class="clearfix" style="margin: 10%" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="نام محصول">
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="form-group">
+                            <select class="form-control borderstyle" id="categoryId" style="width: 100% ; border-radius: 5px;" onclick="showCategory()">
 
-    <!-- Portfolio Modal 4 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
+
+                                    <c:forEach var="productCategory" items="${productCategories}">
+                                        <option value="${productCategory.id}" >${productCategory.name}</option>
+                                    </c:forEach>
+
+                                <%--<option value="1" >item 1</option>--%>
+                        <%--<option value="2">item 2</option>--%>
+                        <%--<option value="3">item 3</option>--%>
+                        <%--<option value="4">item 4</option>--%>
+                        </select>
+
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="https://unsplash.imgix.net/44/9s1lvXLlSbCX5l3ZaYWP_hdr-1.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=f0a1db79752dbb04ec6d2aab7d17c7b0" alt="">
-                            <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
-                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="price" placeholder="قیمت">
                     </div>
-                </div>
+                    <div class="form-group" style="direction: rtl">
+                        <input type="file"  dir="rtl" id="image" name="file" placeholder="عکس">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="6" placeholder="توضیحات" id="description" class="form-control" name="message"
+                                  id="message"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-main text-center " onclick="addProduct()">افزودن</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Portfolio Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="https://unsplash.imgix.net/46/Ov6ZY1zLTWmhPC0wFysP_IMG_2896_edt.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=6518e4df89659818f6c0392175a9c5e6" alt="">
-                            <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
-                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">
-                            <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
-                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                        </div>
-                    </div>
-                </div>
+<footer class="footer section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="social-media">
+                    <li>
+                        <a href="https://www.facebook.com/themefisher">
+                            <i class="tf-ion-social-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/themefisher">
+                            <i class="tf-ion-social-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/themefisher">
+                            <i class="tf-ion-social-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pinterest.com/themefisher/">
+                            <i class="tf-ion-social-pinterest"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-menu text-uppercase">
+                    <li>
+                        <a href="contact.html">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="shop.html">SHOP</a>
+                    </li>
+                    <li>
+                        <a href="pricing.html">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">PRIVACY POLICY</a>
+                    </li>
+                </ul>
+                <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a
+                        href="https://themefisher.com/">Themefisher</a></p>
             </div>
         </div>
-    </div>
-
-    <%--<!-- jQuery Version 1.11.0 -->--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jquery-1.11.0.js"></script>--%>
-
-    <%--<!-- Bootstrap Core JavaScript -->--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/bootstrap.min.js"></script>--%>
-
-    <%--<!-- Plugin JavaScript -->--%>
-    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/classie.js"></script>--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/cbpAnimatedHeader.js"></script>--%>
-
-    <%--<!-- Contact Form JavaScript -->--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jqBootstrapValidation.js"></script>--%>
-    <%--<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/contact_me.js"></script>--%>
-
-
-    <span style="height: 20px; width: 40px; min-height: 20px; min-width: 40px; position: absolute; opacity: 0.85; z-index: 8675309; display: none; cursor: pointer; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAADU0lEQVR42s2WXUhTYRjHz0VEVPRFUGmtVEaFUZFhHxBhsotCU5JwBWEf1EWEEVHQx4UfFWYkFa2biPJiXbUta33OXFtuUXMzJ4bK3Nqay7m5NeZq6h/tPQ+xU20zugjOxR/+7/O8539+5znnwMtNTExwJtMb3L/fiLv3botCSmUjeCaejTOb39AiFothfHxcFIrHY8RksZjBsckJcOIRMfFsHD/SsbExUYpnI8DR0dGUGjSb0byhEJp5Uqg5CTSzc2CQleJbMEj9/ywBcGRkJEk9DQqouEVQT1sK444yWI9UonmTjGqauVLEIlHa9x8lAMbj8SSpp0rwKGMVvg8P46vbg0C7na8z8JsMcgHe7jlEa+edRhiLy8n/TUMfu6EvLElk+U0WtGwrTrdfAGQf5J8iiK4LVzDU28t8JtMSocf8E+l68myaNFXm/6rXslLK7ay5TOunuRvZWpJuvwAYjUaTpOIWoquuAZ219RTaxKYp9BbjycoN5FvL9qH9TBX5rvoGdJythvXYSTxdtRnWylO/ZdqrLsGwszzhWQ593z2KlAwCYCQSSZJ6ehZ0W7bD9VBLgN0NCqr3qR7R2rBrL3pu3Sb/7nDlz2uy6cG0OXk0GTbZXzNp8trsPAQdTj6frlWzN2DcXZGKQQAMh8NJ6rpyHe+PnkCr/CAFdZyvpfpjuvkifLF9wIt1Wwlo0OHie1RvWrKa93RjzfzliTzPKz3ltB0/Tevmwp14wGUgHAzSOoUEwFAolFaaBSuhnslPRkJexUJtZ6v5HtUeLswl33n1BgEY5fvhs9sJ3FAiT+QYyyvoAQJuD0KBAFRTJNAuz5/s3gJgMBhMJwrVFRThM5tY5zUF/A4X1f2fvQTRLCuBreoim0YmAbqNJryvPEXeeq46kaNdkQ/1HCncbJKPs9ZSv2VHGfWsZ2hfkhKAfr8/pdxWKx4wwD69PmVfNSOL+lr2w+gYqHpWDtXt1xQ8AMlWU0e1lqLd/APRHoP8AJqWrQG9gYxcPMsvSJUvAA4MDKTUJ7MZLaVy8v+qT21tcDx/OemePr0RTkNrur4A6PP5xCgBsL+/X4wiQDpuuVxOeL1eMYmYeDY6sOp0z+B0OuHxeEQhxkJMFosJiSO/UinOI/8Pc+l7KKArAT8AAAAASUVORK5CYII=);"></span></body>
-</header>
-<article>
-
-
-
-</article>
-<footer class="fixed_footer">
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ducimus nemo quo totam neque quis soluta nisi obcaecati aliquam saepe dicta adipisci blanditiis quaerat earum laboriosam accusamus nesciunt! Saepe ex maxime enim asperiores nisi. Obcaecati nostrum nobis laudantium aliquam commodi veniam magni similique ullam quis pariatur voluptatem harum id error.</p>
     </div>
 </footer>
-<script>
-    $('#output').hide();
-    function deleteProduct(id) {
-debugger;
 
+<!--
+Essential Scripts
+=====================================-->
+
+<!-- Main jQuery -->
+<script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.1 -->
+<script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Touchpin -->
+<script src="../../plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<!-- Instagram Feed Js -->
+<script src="../../plugins/instafeed/instafeed.min.js"></script>
+<!-- Video Lightbox Plugin -->
+<script src="../../plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<!-- Count Down Js -->
+<script src="../../plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+<!-- slick Carousel -->
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../plugins/slick/slick-animation.min.js"></script>
+
+<!-- Google Mapl -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<script type="text/javascript" src="../../plugins/google-map/gmap.js"></script>
+
+<!-- Main Js File -->
+<script src="../../js/script.js"></script>
+
+
+<script>
+
+
+
+    $('#output').hide();
+    $('.messageAlert').hide();
+
+    function deleteProduct(id) {
         $.ajax({
             type: "GET",
             url: "/deleteProduct",
@@ -679,41 +522,61 @@ debugger;
             },
 
             success: function (response) {
-                $('#product'+id).remove();
-                debugger;
+                $('#product' + id).remove();
+
                 // $("#output").addClass("alert");
                 $("#output").show(0).delay(5000).hide(0);
-
-
-
-
 
 
             },
 
         });
     }
-    $(function() {
-        $('a.page-scroll').bind('click', function(event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
+
+     function showCategory(){
+        debugger;
+         $.ajax({
+             type: "Get",
+             url: "/showCategory",
+
+             success: function (response) {
+
+             },
+
+         });
+     }
+    function addProduct() {
+        debugger;
+        var name=$( "#name" ).val();
+        var price=$( "#price" ).val();
+        var description=$( "#description" ).val();
+        var categoryId=$( "#categoryId" ).val();
+        var fd = new FormData();
+        fd.append( "image", $("input[name=file]")[0].files[0]);
+        fd.append( "name", name);
+        fd.append( "price", price);
+        fd.append( "description", description);
+        fd.append( "categoryId", categoryId);
+
+        $.ajax({
+            type: "POST",
+            url: "/addProduct",
+
+            data: fd,
+            contentType: false,
+            processData: false,
+            cache: false,
+            success: function (response) {
+
+                $(".messageAlert").show(0).delay(5000).hide(0);
+
+            },
+
         });
-    });
-
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top'
-    })
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
-    });
+    }
 </script>
 </body>
 </html>
+
 
 

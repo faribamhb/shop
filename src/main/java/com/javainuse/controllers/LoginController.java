@@ -1,5 +1,6 @@
 package com.javainuse.controllers;
 
+import com.javainuse.dto.ProductWithImage;
 import com.javainuse.entity.Product;
 import com.javainuse.service.LoginService;
 import com.javainuse.service.ProductService;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +34,21 @@ public class LoginController {
         boolean exitUser = loginService.findUser(username, password);
         if(exitUser){
             List<Product> products = productService.findAll();
-            model.put("products",products);
+            List<ProductWithImage> productWithImages=new ArrayList<>();
+            for (Product product : products) {
+                String image = new String(Base64.getEncoder().encode(product.getImage()));
+                ProductWithImage productWithImage=ProductWithImage.builder()
+                        .id(product.getId())
+                        .name(product.getName())
+                        .description(product.getDescription())
+                        .image(image)
+                        .price(product.getPrice())
+                        .productCategory(product.getProductCategory())
+                        .build();
+                productWithImages.add(productWithImage);
+
+            }
+            model.put("products",productWithImages);
             return "home";
         }
         else
